@@ -18,21 +18,6 @@ class Singlefile extends AbstractEntity
 
     protected ?FileReference $file = null;
 
-    /**
-     * @var ObjectStorage<FileReference>
-     */
-    protected ObjectStorage $files;
-
-    public function __construct()
-    {
-        $this->initializeObject();
-    }
-
-    public function initializeObject(): void
-    {
-        $this->files = new ObjectStorage();
-    }
-
     public function getTitle(): string
     {
         return $this->title;
@@ -51,15 +36,5 @@ class Singlefile extends AbstractEntity
     public function setFile(?FileReference $file): void
     {
         $this->file = $file;
-    }
-
-    public function getFiles(): ObjectStorage
-    {
-        return $this->files;
-    }
-
-    public function setFiles(ObjectStorage $files): void
-    {
-        $this->files = $files;
     }
 }
