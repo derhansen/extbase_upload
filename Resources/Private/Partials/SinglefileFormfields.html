@@ -1,0 +1,14 @@
+<div>
+    Title: <f:form.textfield property="title" />
+</div>
+
+<div>
+    <f:if condition="{singlefile.file}">
+        <f:debug>{singlefile.file}</f:debug>
+    </f:if>
+    <f:form.upload property="file" />
+</div>
+
+<div>
+    <f:form.submit value="Save" />
+</div>

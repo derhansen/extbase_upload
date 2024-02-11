@@ -1,0 +1,29 @@
+{
+	"name": "derhansen/extbase-upload",
+	"type": "typo3-cms-extension",
+	"description": "TYPO3 extension for testing purposes only",
+	"license": [
+		"GPL-2.0-or-later"
+	],
+	"authors": [
+		{
+			"name": "Torben Hansen",
+			"email": "derhansen@gmail.com",
+			"role": "Developer"
+		}
+	],
+	"require": {
+		"typo3/cms-core": "dev-master",
+		"php": ">=8.1"
+	},
+	"autoload": {
+		"psr-4": {
+			"Derhansen\\ExtbaseUpload\\": "Classes"
+		}
+	},
+	"extra": {
+		"typo3/cms": {
+			"extension-key": "extbase_upload"
+		}
+	}
+}
