@@ -11,7 +11,7 @@ use TYPO3\CMS\Extbase\Annotation\IgnoreValidation;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
 use TYPO3\CMS\Extbase\Mvc\Controller\ActionController;
 
-class UploadController extends ActionController
+class SingleFileUploadController extends ActionController
 {
     public function __construct(protected readonly SinglefileRepository $singlefileRepository)
     {

@@ -10,4 +10,11 @@ ExtensionUtility::registerPlugin(
     'Upload plugin for single file'
 );
 
-$GLOBALS['TCA']['tt_content']['types']['list']['subtypes_excludelist']['typo3dev_pi1'] = 'layout,recursive,pages';
+ExtensionUtility::registerPlugin(
+    'extbase_upload',
+    'Pi2',
+    'Upload plugin for single file with DTO'
+);
+
+$GLOBALS['TCA']['tt_content']['types']['list']['subtypes_excludelist']['extbaseupload_pi1'] = 'layout,recursive,pages';
+$GLOBALS['TCA']['tt_content']['types']['list']['subtypes_excludelist']['extbaseupload_pi2'] = 'layout,recursive,pages';
