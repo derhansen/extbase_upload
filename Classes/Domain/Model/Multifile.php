@@ -8,27 +8,37 @@ use TYPO3\CMS\Extbase\Annotation\FileUpload;
 use TYPO3\CMS\Extbase\Domain\Model\FileReference;
 use TYPO3\CMS\Extbase\DomainObject\AbstractEntity;
 use TYPO3\CMS\Extbase\Annotation\Validate;
+use TYPO3\CMS\Extbase\Persistence\ObjectStorage;
 
-class Singlefile extends AbstractEntity
+class Multifile extends AbstractEntity
 {
     #[Validate([
         'validator' => 'NotEmpty'
     ])]
     protected string $title = '';
 
-    // @todo uploadFolder is hardcoded here. Provide possibility to modify it afterwards
-    // @todo or make it configurable via `settings:path.to.setting`
-
     #[FileUpload([
         'validation' => [
             'required' => true,
-            'maxFiles' => 1,
             'fileSize' => ['minimum' => '0K', 'maximum' => '2M'],
             'allowedMimeTypes' => ['image/jpeg']
         ],
         'uploadFolder' => '1:/user_upload/extbase_single_file/'
     ])]
-    protected ?FileReference $file = null;
+    /**
+     * @var ObjectStorage<FileReference>
+     */
+    protected ObjectStorage $files;
+
+    public function __construct()
+    {
+        $this->initializeObject();
+    }
+
+    public function initializeObject(): void
+    {
+        $this->files = new ObjectStorage();
+    }
 
     public function getTitle(): string
     {
@@ -40,13 +50,13 @@ class Singlefile extends AbstractEntity
         $this->title = $title;
     }
 
-    public function getFile(): ?FileReference
+    public function getFiles(): ObjectStorage
     {
-        return $this->file;
+        return $this->files;
     }
 
-    public function setFile(?FileReference $file): void
+    public function setFiles(ObjectStorage $files): void
     {
-        $this->file = $file;
+        $this->files = $files;
     }
 }

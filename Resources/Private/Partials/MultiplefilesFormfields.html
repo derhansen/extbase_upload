@@ -1,0 +1,25 @@
+<div>
+    Title: <f:form.textfield property="title" />
+</div>
+
+<div>
+    <f:if condition="{item.file1}">
+        Existing Filename: {item.file1.originalResource.name}
+    </f:if>
+    <f:form.upload property="file1" />
+</div>
+
+<div>
+    <f:if condition="{item.file2}">
+        Existing Filename: {item.file2.originalResource.name}
+    </f:if>
+    <f:form.upload property="file2" />
+</div>
+
+<div>
+    <p>We leave out file3 property, to test it is not possible to upload a file for this property</p>
+</div>
+
+<div>
+    <f:form.submit value="Save" />
+</div>

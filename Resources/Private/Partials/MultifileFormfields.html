@@ -1,0 +1,18 @@
+<div>
+    Title: <f:form.textfield property="title" />
+</div>
+
+<div>
+    <f:if condition="{item.files}">
+        <ul>
+            <f:for each="{item.files}" as="file">
+                <li>Existing Filename: {file.originalResource.name}</li>
+            </f:for>
+        </ul>
+    </f:if>
+    <f:form.upload property="files" multiple="1" />
+</div>
+
+<div>
+    <f:form.submit value="Save" />
+</div>

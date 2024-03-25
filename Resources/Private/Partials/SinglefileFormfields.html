@@ -3,8 +3,8 @@
 </div>
 
 <div>
-    <f:if condition="{singlefile.file}">
-        <f:debug>{singlefile.file}</f:debug>
+    <f:if condition="{item.file}">
+        Existing Filename: {item.file.originalResource.name}
     </f:if>
     <f:form.upload property="file" />
 </div>

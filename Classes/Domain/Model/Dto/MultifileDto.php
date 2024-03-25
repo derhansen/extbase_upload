@@ -7,8 +7,9 @@ namespace Derhansen\ExtbaseUpload\Domain\Model\Dto;
 use TYPO3\CMS\Core\Http\UploadedFile;
 use TYPO3\CMS\Extbase\Annotation\Validate;
 use TYPO3\CMS\Extbase\Annotation\FileUpload;
+use TYPO3\CMS\Extbase\Persistence\ObjectStorage;
 
-class SinglefileDto
+class MultifileDto
 {
     #[Validate([
         'validator' => 'NotEmpty'
@@ -18,12 +19,25 @@ class SinglefileDto
     #[FileUpload([
         'validation' => [
             'required' => true,
-            'maxFiles' => 1,
+            'maxFiles' => 99,
             'fileSize' => ['minimum' => '100K', 'maximum' => '2M'],
             'allowedMimeTypes' => ['image/jpeg']
         ],
     ])]
-    protected ?UploadedFile $file = null;
+    /**
+     * @var ObjectStorage<UploadedFile>
+     */
+    protected ObjectStorage $files;
+
+    public function __construct()
+    {
+        $this->initializeObject();
+    }
+
+    public function initializeObject(): void
+    {
+        $this->files = new ObjectStorage();
+    }
 
     public function getTitle(): string
     {
@@ -35,13 +49,13 @@ class SinglefileDto
         $this->title = $title;
     }
 
-    public function getFile(): ?UploadedFile
+    public function getFiles(): ObjectStorage
     {
-        return $this->file;
+        return $this->files;
     }
 
-    public function setFile(?UploadedFile $file): void
+    public function setFiles(ObjectStorage $files): void
     {
-        $this->file = $file;
+        $this->files = $files;
     }
 }

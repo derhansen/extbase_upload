@@ -27,7 +27,7 @@ return [
     'types' => [
         '1' => [
             'showitem' => '
-                title, file,
+                title, files,
                 --div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:language,
                     --palette--;;language,
 
@@ -155,12 +155,11 @@ return [
                 'required' => true,
             ],
         ],
-        'file' => [
+        'files' => [
             'exclude' => true,
-            'label' => 'Single file',
+            'label' => 'Multiple file',
             'config' => [
                 'type' => 'file',
-                'maxitems' => 1,
                 'allowed' => 'common-image-types',
             ],
         ],

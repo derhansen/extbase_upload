@@ -27,7 +27,7 @@ return [
     'types' => [
         '1' => [
             'showitem' => '
-                title, file,
+                title, file1, file2, file3,
                 --div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:language,
                     --palette--;;language,
 
@@ -62,8 +62,8 @@ return [
                         'value' => 0,
                     ],
                 ],
-                'foreign_table' => 'tx_extbaseupload_domain_model_singlefile',
-                'foreign_table_where' => 'AND tx_extbaseupload_domain_model_singlefile.pid=###CURRENT_PID### AND tx_extbaseupload_domain_model_singlefile.sys_language_uid IN (-1,0)',
+                'foreign_table' => 'tx_extbaseupload_domain_model_multiplefiles',
+                'foreign_table_where' => 'AND tx_extbaseupload_domain_model_multiplefiles.pid=###CURRENT_PID### AND tx_extbaseupload_domain_model_multiplefiles.sys_language_uid IN (-1,0)',
                 'default' => 0,
             ],
         ],
@@ -155,9 +155,27 @@ return [
                 'required' => true,
             ],
         ],
-        'file' => [
+        'file1' => [
             'exclude' => true,
-            'label' => 'Single file',
+            'label' => 'File 1',
+            'config' => [
+                'type' => 'file',
+                'maxitems' => 1,
+                'allowed' => 'common-image-types',
+            ],
+        ],
+        'file2' => [
+            'exclude' => true,
+            'label' => 'File 2',
+            'config' => [
+                'type' => 'file',
+                'maxitems' => 1,
+                'allowed' => 'common-image-types',
+            ],
+        ],
+        'file3' => [
+            'exclude' => true,
+            'label' => 'File 3',
             'config' => [
                 'type' => 'file',
                 'maxitems' => 1,

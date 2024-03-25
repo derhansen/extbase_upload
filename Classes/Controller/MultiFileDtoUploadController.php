@@ -4,12 +4,12 @@ declare(strict_types=1);
 
 namespace Derhansen\ExtbaseUpload\Controller;
 
-use Derhansen\ExtbaseUpload\Domain\Model\Dto\SinglefileDto;
+use Derhansen\ExtbaseUpload\Domain\Model\Dto\MultifileDto;
 use Psr\Http\Message\ResponseInterface;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
 use TYPO3\CMS\Extbase\Mvc\Controller\ActionController;
 
-class SingleFileDtoUploadController extends ActionController
+class MultiFileDtoUploadController extends ActionController
 {
     public function indexAction(): ResponseInterface
     {
@@ -19,13 +19,13 @@ class SingleFileDtoUploadController extends ActionController
     public function newAction(): ResponseInterface
     {
         $this->view->assignMultiple([
-            'item' => GeneralUtility::makeInstance(SinglefileDto::class),
+            'item' => GeneralUtility::makeInstance(MultifileDto::class),
         ]);
 
         return $this->htmlResponse();
     }
 
-    public function createAction(SinglefileDto $item): ResponseInterface
+    public function createAction(MultifileDto $item): ResponseInterface
     {
         return $this->redirect('index');
     }
