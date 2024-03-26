@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Derhansen\ExtbaseUpload\Domain\Model;
 
+use TYPO3\CMS\Core\Resource\Enum\DuplicationBehavior;
 use TYPO3\CMS\Extbase\Annotation\FileUpload;
 use TYPO3\CMS\Extbase\Domain\Model\FileReference;
 use TYPO3\CMS\Extbase\DomainObject\AbstractEntity;
@@ -16,9 +17,6 @@ class Singlefile extends AbstractEntity
     ])]
     protected string $title = '';
 
-    // @todo uploadFolder is hardcoded here. Provide possibility to modify it afterwards
-    // @todo or make it configurable via `settings:path.to.setting`
-
     #[FileUpload([
         'validation' => [
             'required' => true,
@@ -26,7 +24,9 @@ class Singlefile extends AbstractEntity
             'fileSize' => ['minimum' => '0K', 'maximum' => '2M'],
             'allowedMimeTypes' => ['image/jpeg']
         ],
-        'uploadFolder' => '1:/user_upload/extbase_single_file/'
+        'uploadFolder' => '1:/user_upload/extbase_single_file/',
+        'addRandomPostfix' => false,
+        'duplicationBehavior' => DuplicationBehavior::RENAME,
     ])]
     protected ?FileReference $file = null;
 
