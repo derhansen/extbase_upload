@@ -1,0 +1,52 @@
+<div>
+    Title: <f:form.textfield property="title" />
+</div>
+
+<hr>
+
+<h3>Direct property:</h3>
+
+<div>
+    Title: <f:form.textfield property="singlefile.title" />
+</div>
+
+<div>
+    <f:if condition="{item.singlefile.file}">
+        Existing Filename: {item.singlefile.file.originalResource.name}
+    </f:if>
+    <f:form.upload property="singlefile.file" />
+</div>
+
+<hr>
+
+<h3>Inline items:</h3>
+
+<h4>Item 0</h4>
+<div>
+    Title: <f:form.textfield property="singlefiles.0.title" />
+</div>
+
+<div>
+    <f:if condition="{item.singlefiles.0.file}">
+        Existing Filename: {item.singlefiles.0.file.originalResource.name}
+    </f:if>
+    <f:form.upload property="singlefiles.0.file" />
+</div>
+
+<h4>Item 1</h4>
+<div>
+    Title: <f:form.textfield property="singlefiles.1.title" />
+</div>
+
+<div>
+    <f:if condition="{item.singlefiles.1.file}">
+        Existing Filename: {item.singlefiles.1.file.originalResource.name}
+    </f:if>
+    <f:form.upload property="singlefiles.1.file" />
+</div>
+
+<hr>
+
+<div>
+    <f:form.submit value="Save" />
+</div>

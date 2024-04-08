@@ -2,7 +2,7 @@
 
 return [
     'ctrl' => [
-        'title' => 'Record with file field (one file allowed)',
+        'title' => 'Record with inline "Record with file field" items',
         'label' => 'title',
         'tstamp' => 'tstamp',
         'crdate' => 'crdate',
@@ -27,7 +27,7 @@ return [
     'types' => [
         '1' => [
             'showitem' => '
-                title, file,
+                title, singlefile, singlefiles,
                 --div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:language,
                     --palette--;;language,
 
@@ -155,13 +155,33 @@ return [
                 'required' => true,
             ],
         ],
-        'file' => [
+        'singlefiles' => [
             'exclude' => true,
-            'label' => 'Single file',
+            'label' => 'Singlefile inline items',
             'config' => [
-                'type' => 'file',
+                'type' => 'inline',
+                'foreign_table' => 'tx_extbaseupload_domain_model_singlefile',
+                'foreign_field' => 'inlinetest',
+                'foreign_sortby' => 'sorting',
+                'maxitems' => 9999,
+                'appearance' => [
+                    'showSynchronizationLink' => true,
+                    'showAllLocalizationLink' => true,
+                    'showPossibleLocalizationRecords' => true,
+                ],
+            ],
+        ],
+        'singlefile' => [
+            'exclude' => true,
+            'label' => 'Singlefile item',
+            'config' => [
+                'type' => 'group',
+                'allowed' => 'tx_extbaseupload_domain_model_singlefile',
+                'foreign_table' => 'tx_extbaseupload_domain_model_singlefile',
+                'size' => 1,
+                'minitems' => 0,
                 'maxitems' => 1,
-                'allowed' => 'common-image-types',
+                'default' => 0,
             ],
         ],
     ],

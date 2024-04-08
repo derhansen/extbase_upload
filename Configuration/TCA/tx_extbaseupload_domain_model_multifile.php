@@ -2,7 +2,7 @@
 
 return [
     'ctrl' => [
-        'title' => 'Data',
+        'title' => 'Record with file field (multiple files allowed)',
         'label' => 'title',
         'tstamp' => 'tstamp',
         'crdate' => 'crdate',

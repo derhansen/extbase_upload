@@ -4,23 +4,23 @@ declare(strict_types=1);
 
 namespace Derhansen\ExtbaseUpload\Controller;
 
-use Derhansen\ExtbaseUpload\Domain\Model\Singlefile;
-use Derhansen\ExtbaseUpload\Domain\Repository\SinglefileRepository;
+use Derhansen\ExtbaseUpload\Domain\Model\Inlinetest;
+use Derhansen\ExtbaseUpload\Domain\Repository\InlinetestRepository;
 use Psr\Http\Message\ResponseInterface;
 use TYPO3\CMS\Extbase\Annotation\IgnoreValidation;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
 use TYPO3\CMS\Extbase\Mvc\Controller\ActionController;
 
-class SingleFileUploadController extends ActionController
+class InlineTestUploadController extends ActionController
 {
-    public function __construct(protected readonly SinglefileRepository $singlefileRepository)
+    public function __construct(protected readonly InlinetestRepository $inlinetestRepository)
     {
     }
 
     public function listAction(): ResponseInterface
     {
         $this->view->assignMultiple([
-            'items' => $this->singlefileRepository->findAllNotInline(),
+            'items' => $this->inlinetestRepository->findAll(),
         ]);
 
         return $this->htmlResponse();
@@ -29,21 +29,21 @@ class SingleFileUploadController extends ActionController
     public function newAction(): ResponseInterface
     {
         $this->view->assignMultiple([
-            'item' => GeneralUtility::makeInstance(Singlefile::class),
+            'item' => GeneralUtility::makeInstance(Inlinetest::class),
         ]);
 
         return $this->htmlResponse();
     }
 
-    public function createAction(Singlefile $item): ResponseInterface
+    public function createAction(Inlinetest $item): ResponseInterface
     {
-        $item->setPid(88);
-        $this->singlefileRepository->add($item);
+        $item->setPid(94);
+        $this->inlinetestRepository->add($item);
 
         return $this->redirect('list');
     }
 
-    public function showAction(Singlefile $item): ResponseInterface
+    public function showAction(Inlinetest $item): ResponseInterface
     {
         $this->view->assignMultiple([
             'item' => $item,
@@ -55,7 +55,7 @@ class SingleFileUploadController extends ActionController
     /**
      * @IgnoreValidation("item")
      */
-    public function editAction(Singlefile $item): ResponseInterface
+    public function editAction(Inlinetest $item): ResponseInterface
     {
         $this->view->assignMultiple([
             'item' => $item,
@@ -64,9 +64,9 @@ class SingleFileUploadController extends ActionController
         return $this->htmlResponse();
     }
 
-    public function updateAction(Singlefile $item): ResponseInterface
+    public function updateAction(Inlinetest $item): ResponseInterface
     {
-        $this->singlefileRepository->update($item);
+        $this->inlinetestRepository->update($item);
 
         return $this->redirect('list');
     }

@@ -31,8 +31,15 @@ ExtensionUtility::registerPlugin(
     'Pi5',
     'Upload plugin for multiple file properties in a domain object'
 );
+ExtensionUtility::registerPlugin(
+    'extbase_upload',
+    'Pi6',
+    'Upload plugin for inline test with multiple single file items'
+);
 
 $GLOBALS['TCA']['tt_content']['types']['list']['subtypes_excludelist']['extbaseupload_pi1'] = 'layout,recursive,pages';
 $GLOBALS['TCA']['tt_content']['types']['list']['subtypes_excludelist']['extbaseupload_pi2'] = 'layout,recursive,pages';
 $GLOBALS['TCA']['tt_content']['types']['list']['subtypes_excludelist']['extbaseupload_pi3'] = 'layout,recursive,pages';
 $GLOBALS['TCA']['tt_content']['types']['list']['subtypes_excludelist']['extbaseupload_pi4'] = 'layout,recursive,pages';
+$GLOBALS['TCA']['tt_content']['types']['list']['subtypes_excludelist']['extbaseupload_pi5'] = 'layout,recursive,pages';
+$GLOBALS['TCA']['tt_content']['types']['list']['subtypes_excludelist']['extbaseupload_pi6'] = 'layout,recursive,pages';

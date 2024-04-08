@@ -2,6 +2,7 @@
 
 defined('TYPO3') or die();
 
+use Derhansen\ExtbaseUpload\Controller\InlineTestUploadController;
 use Derhansen\ExtbaseUpload\Controller\MultiFileDtoUploadController;
 use Derhansen\ExtbaseUpload\Controller\MultiFileUploadController;
 use Derhansen\ExtbaseUpload\Controller\MultipleFilesUploadController;
@@ -70,6 +71,19 @@ ExtensionUtility::configurePlugin(
     // non-cacheable actions
     [
         MultipleFilesUploadController::class => 'list,new,create,show,edit,update',
+    ],
+    ExtensionUtility::PLUGIN_TYPE_CONTENT_ELEMENT
+);
+
+ExtensionUtility::configurePlugin(
+    'extbase_upload',
+    'Pi6',
+    [
+        InlineTestUploadController::class => 'list,new,create,show,edit,update',
+    ],
+    // non-cacheable actions
+    [
+        InlineTestUploadController::class => 'list,new,create,show,edit,update',
     ],
     ExtensionUtility::PLUGIN_TYPE_CONTENT_ELEMENT
 );
