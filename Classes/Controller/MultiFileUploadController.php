@@ -37,7 +37,7 @@ class MultiFileUploadController extends ActionController
 
     public function createAction(Multifile $item): ResponseInterface
     {
-        $item->setPid(92);
+        $item->setPid((int)($this->settings['multiFileUploadPid'] ?? 0));
         $this->multifileRepository->add($item);
 
         return $this->redirect('list');

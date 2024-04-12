@@ -8,6 +8,7 @@ use Derhansen\ExtbaseUpload\Controller\MultiFileUploadController;
 use Derhansen\ExtbaseUpload\Controller\MultipleFilesUploadController;
 use Derhansen\ExtbaseUpload\Controller\SingleFileDtoUploadController;
 use Derhansen\ExtbaseUpload\Controller\SingleFileUploadController;
+use TYPO3\CMS\Core\Utility\ExtensionManagementUtility;
 use TYPO3\CMS\Extbase\Utility\ExtensionUtility;
 
 ExtensionUtility::configurePlugin(
@@ -86,4 +87,10 @@ ExtensionUtility::configurePlugin(
         InlineTestUploadController::class => 'list,new,create,show,edit,update',
     ],
     ExtensionUtility::PLUGIN_TYPE_CONTENT_ELEMENT
+);
+
+ExtensionManagementUtility::addTypoScript(
+    'extbase_upload',
+    'setup',
+    "@import 'EXT:extbase_upload/Configuration/TypoScript/setup.typoscript'"
 );

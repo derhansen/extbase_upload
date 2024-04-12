@@ -1,0 +1,8 @@
+plugin.tx_extbaseupload {
+  settings {
+    inlineTestUploadPid = 94
+    multiFileUploadPid = 92
+    multipleFilesUploadPid = 93
+    singleFileUploadPid = 88
+  }
+}

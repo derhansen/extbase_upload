@@ -37,7 +37,7 @@ class SingleFileUploadController extends ActionController
 
     public function createAction(Singlefile $item): ResponseInterface
     {
-        $item->setPid(88);
+        $item->setPid((int)($this->settings['singleFileUploadPid'] ?? 0));
         $this->singlefileRepository->add($item);
 
         return $this->redirect('list');

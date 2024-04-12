@@ -37,7 +37,7 @@ class InlineTestUploadController extends ActionController
 
     public function createAction(Inlinetest $item): ResponseInterface
     {
-        $item->setPid(94);
+        $item->setPid((int)($this->settings['inlineTestUploadPid'] ?? 0));
         $this->inlinetestRepository->add($item);
 
         return $this->redirect('list');
