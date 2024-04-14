@@ -25,7 +25,7 @@ class Singlefile extends AbstractEntity
             'allowedMimeTypes' => ['image/jpeg']
         ],
         'uploadFolder' => '1:/user_upload/extbase_single_file/',
-        'addRandomPostfix' => false,
+        'addRandomSuffix' => false,
         'duplicationBehavior' => DuplicationBehavior::RENAME,
     ])]
     protected ?FileReference $file = null;
