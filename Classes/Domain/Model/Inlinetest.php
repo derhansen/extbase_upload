@@ -15,7 +15,7 @@ class Inlinetest extends AbstractEntity
     ])]
     protected string $title = '';
 
-    protected Singlefile $singlefile;
+    protected ?Singlefile $singlefile = null;
 
     /**
      * @var ObjectStorage<Singlefile>
@@ -32,12 +32,12 @@ class Inlinetest extends AbstractEntity
         $this->title = $title;
     }
 
-    public function getSinglefile(): Singlefile
+    public function getSinglefile(): ?Singlefile
     {
         return $this->singlefile;
     }
 
-    public function setSinglefile(Singlefile $singlefile): void
+    public function setSinglefile(?Singlefile $singlefile): void
     {
         $this->singlefile = $singlefile;
     }
