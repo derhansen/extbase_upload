@@ -1,10 +1,19 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers"
+      xmlns:e="http://typo3.org/ns/TYPO3/CMS/Extbase/ViewHelpers"
+      data-namespace-typo3-fluid="true">
+
 <div>
     Title: <f:form.textfield property="title" />
 </div>
 
 <div>
     <f:if condition="{item.file}">
-        Existing Filename: {item.file.originalResource.name}
+        <div>
+            Existing Filename: {item.file.originalResource.name}
+        </div>
+        <div>
+            <e:form.deleteUpload property="file" fileReference="{item.file}" /> Delete file
+        </div>
     </f:if>
     <f:form.upload property="file" />
 </div>
@@ -12,3 +21,4 @@
 <div>
     <f:form.submit value="Save" />
 </div>
+
