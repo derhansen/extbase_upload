@@ -1,6 +1,4 @@
-<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers"
-      xmlns:e="http://typo3.org/ns/TYPO3/CMS/Extbase/ViewHelpers"
-      data-namespace-typo3-fluid="true">
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
 
 <div>
     Title: <f:form.textfield property="title" />
@@ -20,7 +18,7 @@
             Existing Filename: {item.singlefile.file.originalResource.name}
         </div>
         <div>
-            <e:form.deleteUpload property="singlefile.file" fileReference="{singlefile.file}" /> Delete file
+            <f:form.uploadDeleteCheckbox property="singlefile.file" fileReference="{item.singlefile.file}" /> Delete file
         </div>
     </f:if>
     <f:form.upload property="singlefile.file" />
@@ -41,7 +39,7 @@
             Existing Filename: {item.singlefiles.0.file.originalResource.name}
         </div>
         <div>
-            <e:form.deleteUpload property="singlefiles.0.file" fileReference="{singlefiles.0.file}" /> Delete file
+            <f:form.uploadDeleteCheckbox property="singlefiles.0.file" fileReference="{item.singlefiles.0.file}" /> Delete file
         </div>
     </f:if>
     <f:form.upload property="singlefiles.0.file" />
@@ -58,7 +56,7 @@
             Existing Filename: {item.singlefiles.1.file.originalResource.name}
         </div>
         <div>
-            <e:form.deleteUpload property="singlefiles.1.file" fileReference="{singlefiles.1.file}" /> Delete file
+            <f:form.uploadDeleteCheckbox property="singlefiles.1.file" fileReference="{item.singlefiles.1.file}" /> Delete file
         </div>
     </f:if>
     <f:form.upload property="singlefiles.1.file" />
