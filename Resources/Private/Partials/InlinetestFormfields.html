@@ -18,7 +18,8 @@
             Existing Filename: {item.singlefile.file.originalResource.name}
         </div>
         <div>
-            <f:form.uploadDeleteCheckbox property="singlefile.file" fileReference="{item.singlefile.file}" /> Delete file
+            <f:form.uploadDeleteCheckbox id="singlefile.file" property="singlefile.file" fileReference="{item.singlefile.file}" />
+            <label for="singlefile.file">Delete file</label>
         </div>
     </f:if>
     <f:form.upload property="singlefile.file" />
@@ -39,7 +40,8 @@
             Existing Filename: {item.singlefiles.0.file.originalResource.name}
         </div>
         <div>
-            <f:form.uploadDeleteCheckbox property="singlefiles.0.file" fileReference="{item.singlefiles.0.file}" /> Delete file
+            <f:form.uploadDeleteCheckbox id="singlefiles.0.file" property="singlefiles.0.file" fileReference="{item.singlefiles.0.file}" />
+            <label for="singlefiles.0.file">Delete file</label>
         </div>
     </f:if>
     <f:form.upload property="singlefiles.0.file" />
@@ -56,7 +58,8 @@
             Existing Filename: {item.singlefiles.1.file.originalResource.name}
         </div>
         <div>
-            <f:form.uploadDeleteCheckbox property="singlefiles.1.file" fileReference="{item.singlefiles.1.file}" /> Delete file
+            <f:form.uploadDeleteCheckbox id="singlefiles.1.file" property="singlefiles.1.file" fileReference="{item.singlefiles.1.file}" />
+            <label for="singlefiles.1.file">Delete file</label>
         </div>
     </f:if>
     <f:form.upload property="singlefiles.1.file" />

@@ -10,7 +10,8 @@
             Existing Filename: {item.file.originalResource.name}
         </div>
         <div>
-            <f:form.uploadDeleteCheckbox property="file" fileReference="{item.file}" /> Delete file
+            <f:form.uploadDeleteCheckbox id="file" property="file" fileReference="{item.file}" />
+            <label for="file">Delete file</label>
         </div>
     </f:if>
     <f:form.upload property="file" />

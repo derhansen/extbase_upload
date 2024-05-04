@@ -13,7 +13,8 @@
     </div>
     <div>
         <f:if condition="{item.file1}">
-            <f:form.uploadDeleteCheckbox property="file1" fileReference="{item.file1}" /> Delete file
+            <f:form.uploadDeleteCheckbox id="file1" property="file1" fileReference="{item.file1}" />
+            <label for="file1">Delete file</label>
         </f:if>
     </div>
 </div>
@@ -27,7 +28,8 @@
     </div>
     <div>
         <f:if condition="{item.file2}">
-            <f:form.uploadDeleteCheckbox property="file2" fileReference="{item.file2}" /> Delete file
+            <f:form.uploadDeleteCheckbox id="file2" property="file2" fileReference="{item.file2}" />
+            <label for="file2">Delete file</label>
         </f:if>
     </div>
 </div>
