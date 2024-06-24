@@ -16,9 +16,6 @@ class Multiplefiles extends AbstractEntity
     ])]
     protected string $title = '';
 
-    // @todo uploadFolder is hardcoded here. Provide possibility to modify it afterwards
-    // @todo or make it configurable via `settings:path.to.setting`
-
     #[FileUpload([
         'validation' => [
             'required' => true,
