@@ -6,8 +6,10 @@ namespace Derhansen\ExtbaseUpload\Domain\Model\Dto;
 
 use TYPO3\CMS\Core\Http\UploadedFile;
 use TYPO3\CMS\Extbase\Annotation\Validate;
-use TYPO3\CMS\Extbase\Annotation\FileUpload;
 use TYPO3\CMS\Extbase\Persistence\ObjectStorage;
+use TYPO3\CMS\Extbase\Validation\Validator\FileNameValidator;
+use TYPO3\CMS\Extbase\Validation\Validator\FileSizeValidator;
+use TYPO3\CMS\Extbase\Validation\Validator\MimeTypeValidator;
 
 class MultifileDto
 {
@@ -16,13 +18,22 @@ class MultifileDto
     ])]
     protected string $title = '';
 
-    #[FileUpload([
-        'validation' => [
-            'required' => true,
-            'maxFiles' => 99,
-            'fileSize' => ['minimum' => '100K', 'maximum' => '2M'],
-            'allowedMimeTypes' => ['image/jpeg']
-        ],
+    #[Validate(['validator' => 'NotEmpty'])]
+    #[Validate([
+        'validator' => FileNameValidator::class,
+    ])]
+    #[Validate([
+        'validator' => MimeTypeValidator::class,
+        'options' => [
+            'allowedMimeTypes' => ['image/jpeg'],
+        ]
+    ])]
+    #[Validate([
+        'validator' => FileSizeValidator::class,
+        'options' => [
+            'minimum' => '1M',
+            'maximum' => '20M',
+        ]
     ])]
     /**
      * @var ObjectStorage<UploadedFile>

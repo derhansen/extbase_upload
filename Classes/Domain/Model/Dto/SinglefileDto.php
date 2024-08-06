@@ -5,8 +5,8 @@ declare(strict_types=1);
 namespace Derhansen\ExtbaseUpload\Domain\Model\Dto;
 
 use TYPO3\CMS\Core\Http\UploadedFile;
-use TYPO3\CMS\Extbase\Annotation\FileUpload;
 use TYPO3\CMS\Extbase\Annotation\Validate;
+use TYPO3\CMS\Extbase\Validation\Validator\FileNameValidator;
 use TYPO3\CMS\Extbase\Validation\Validator\FileSizeValidator;
 use TYPO3\CMS\Extbase\Validation\Validator\MimeTypeValidator;
 
@@ -19,6 +19,9 @@ class SinglefileDto
 
     #[Validate(['validator' => 'NotEmpty'])]
     #[Validate([
+        'validator' => FileNameValidator::class,
+    ])]
+    #[Validate([
         'validator' => MimeTypeValidator::class,
         'options' => [
             'allowedMimeTypes' => ['image/jpeg'],
@@ -27,7 +30,8 @@ class SinglefileDto
     #[Validate([
         'validator' => FileSizeValidator::class,
         'options' => [
-            'minimum' => '10M',
+            'minimum' => '1M',
+            'maximum' => '20M',
         ]
     ])]
     protected ?UploadedFile $file = null;
