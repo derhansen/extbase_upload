@@ -31,7 +31,7 @@ class MultifileDto
     #[Validate([
         'validator' => FileSizeValidator::class,
         'options' => [
-            'minimum' => '1M',
+            'minimum' => '100K',
             'maximum' => '20M',
         ]
     ])]
