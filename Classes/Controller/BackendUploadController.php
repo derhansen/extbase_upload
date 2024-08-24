@@ -37,7 +37,7 @@ class BackendUploadController extends ActionController
             'items' => $this->singlefileRepository->findAllNotInline(),
         ]);
 
-        return $this->moduleTemplate->renderResponse('List');
+        return $this->moduleTemplate->renderResponse('BackendUpload/List');
     }
 
     public function newAction(): ResponseInterface
@@ -46,7 +46,7 @@ class BackendUploadController extends ActionController
             'item' => GeneralUtility::makeInstance(Singlefile::class),
         ]);
 
-        return $this->moduleTemplate->renderResponse('New');
+        return $this->moduleTemplate->renderResponse('BackendUpload/New');
     }
 
     public function createAction(Singlefile $item): ResponseInterface
@@ -63,7 +63,7 @@ class BackendUploadController extends ActionController
             'item' => $item,
         ]);
 
-        return $this->moduleTemplate->renderResponse('Show');
+        return $this->moduleTemplate->renderResponse('BackendUpload/Show');
     }
 
     /**
@@ -75,7 +75,7 @@ class BackendUploadController extends ActionController
             'item' => $item,
         ]);
 
-        return $this->moduleTemplate->renderResponse('Edit');
+        return $this->moduleTemplate->renderResponse('BackendUpload/Edit');
     }
 
     public function updateAction(Singlefile $item): ResponseInterface
