@@ -76,19 +76,6 @@ ExtensionUtility::configurePlugin(
     ExtensionUtility::PLUGIN_TYPE_CONTENT_ELEMENT
 );
 
-ExtensionUtility::configurePlugin(
-    'extbase_upload',
-    'Pi6',
-    [
-        InlineTestUploadController::class => 'list,new,create,show,edit,update',
-    ],
-    // non-cacheable actions
-    [
-        InlineTestUploadController::class => 'list,new,create,show,edit,update',
-    ],
-    ExtensionUtility::PLUGIN_TYPE_CONTENT_ELEMENT
-);
-
 ExtensionManagementUtility::addTypoScript(
     'extbase_upload',
     'setup',

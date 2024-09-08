@@ -11,5 +11,4 @@ Note, that the repository uses hardcoded PIDs in controllers and hardcoded uploa
 3. Single file upload with mapping to multiple `FileReference` properties of a domain model
 4. Multi file upload with mapping to an `ObjectStorage<UploadedFile>` property of a DTO
 5. Multi file upload with mapping to an `ObjectStorage<FileReference>` property of a DTO
-6. Inline nesting of models (one level) with `FileReference` properties
-7. Backend module with single file upload similar to 2
+6. Backend module with single file upload similar to 2
