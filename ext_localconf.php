@@ -75,9 +75,3 @@ ExtensionUtility::configurePlugin(
     ],
     ExtensionUtility::PLUGIN_TYPE_CONTENT_ELEMENT
 );
-
-ExtensionManagementUtility::addTypoScript(
-    'extbase_upload',
-    'setup',
-    "@import 'EXT:extbase_upload/Configuration/TypoScript/setup.typoscript'"
-);

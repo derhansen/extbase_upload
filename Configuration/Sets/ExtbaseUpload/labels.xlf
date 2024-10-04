@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" version="1.2">
+	<file source-language="en" datatype="plaintext" original="EXT:extbase_upload/Configuration/Sets/labels.xlf" date="2024-10-03T15:42:00Z" product-name="extbase_upload">
+		<header/>
+		<body>
+			<trans-unit id="label" resname="label">
+				<source>Extbase Upload development extension</source>
+			</trans-unit>
+		</body>
+	</file>
+</xliff>

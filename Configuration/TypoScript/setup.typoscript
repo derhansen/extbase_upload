@@ -7,3 +7,7 @@ plugin.tx_extbaseupload {
     singleFileUploadPid = 88
   }
 }
+
+module.tx_extbaseupload {
+  settings < plugin.tx_extbaseupload.settings
+}
