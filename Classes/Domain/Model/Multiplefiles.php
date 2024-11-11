@@ -21,7 +21,7 @@ class Multiplefiles extends AbstractEntity
             'required' => true,
             'maxFiles' => 1,
             'fileSize' => ['minimum' => '0K', 'maximum' => '2M'],
-            'allowedMimeTypes' => ['image/jpeg']
+            'mimeType' => ['allowedMimeTypes' => ['image/jpeg']],
         ],
         'uploadFolder' => '1:/user_upload/extbase_single_file/'
     ])]
@@ -32,7 +32,7 @@ class Multiplefiles extends AbstractEntity
             'required' => false,
             'maxFiles' => 1,
             'fileSize' => ['minimum' => '0K', 'maximum' => '2M'],
-            'allowedMimeTypes' => ['image/jpeg']
+            'mimeType' => ['allowedMimeTypes' => ['image/jpeg']],
         ],
         'uploadFolder' => '1:/user_upload/extbase_single_file/'
     ])]
@@ -43,7 +43,7 @@ class Multiplefiles extends AbstractEntity
             'required' => false,
             'maxFiles' => 1,
             'fileSize' => ['minimum' => '0K', 'maximum' => '2M'],
-            'allowedMimeTypes' => ['image/jpeg']
+            'mimeType' => ['allowedMimeTypes' => ['image/jpeg']],
         ],
         'uploadFolder' => '1:/user_upload/extbase_single_file/'
     ])]

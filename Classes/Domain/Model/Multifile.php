@@ -21,7 +21,7 @@ class Multifile extends AbstractEntity
         'validation' => [
             'required' => true,
             'fileSize' => ['minimum' => '0K', 'maximum' => '2M'],
-            'allowedMimeTypes' => ['image/jpeg']
+            'mimeType' => ['allowedMimeTypes' => ['image/jpeg']],
         ],
         'uploadFolder' => '1:/user_upload/extbase_single_file/'
     ])]

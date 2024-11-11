@@ -22,7 +22,7 @@ class Singlefile extends AbstractEntity
             'required' => true,
             'maxFiles' => 1,
             'fileSize' => ['minimum' => '0K', 'maximum' => '2M'],
-            'allowedMimeTypes' => ['image/jpeg'],
+            'mimeType' => ['allowedMimeTypes' => ['image/jpeg']],
             'imageDimensions' => ['maxWidth' => 4096, 'maxHeight' => 4096]
         ],
         'uploadFolder' => '1:/user_upload/extbase_single_file/',
