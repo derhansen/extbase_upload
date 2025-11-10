@@ -7,8 +7,8 @@ namespace Derhansen\ExtbaseUpload\Controller;
 use Derhansen\ExtbaseUpload\Domain\Model\Multiplefiles;
 use Derhansen\ExtbaseUpload\Domain\Repository\MultiplefilesRepository;
 use Psr\Http\Message\ResponseInterface;
-use TYPO3\CMS\Extbase\Annotation\IgnoreValidation;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
+use TYPO3\CMS\Extbase\Attribute\IgnoreValidation;
 use TYPO3\CMS\Extbase\Mvc\Controller\ActionController;
 
 class MultipleFilesUploadController extends ActionController
@@ -52,9 +52,7 @@ class MultipleFilesUploadController extends ActionController
         return $this->htmlResponse();
     }
 
-    /**
-     * @IgnoreValidation("item")
-     */
+    #[IgnoreValidation(['value' => 'item'])]
     public function editAction(Multiplefiles $item): ResponseInterface
     {
         $this->view->assignMultiple([
