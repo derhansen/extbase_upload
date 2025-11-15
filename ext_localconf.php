@@ -2,7 +2,6 @@
 
 defined('TYPO3') or die();
 
-use Derhansen\ExtbaseUpload\Controller\InlineTestUploadController;
 use Derhansen\ExtbaseUpload\Controller\MultiFileDtoUploadController;
 use Derhansen\ExtbaseUpload\Controller\MultiFileUploadController;
 use Derhansen\ExtbaseUpload\Controller\MultipleFilesUploadController;

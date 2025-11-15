@@ -15,11 +15,4 @@ class SinglefileRepository extends Repository
         $this->defaultQuerySettings = GeneralUtility::makeInstance(Typo3QuerySettings::class);
         $this->defaultQuerySettings->setRespectStoragePage(false);
     }
-
-    public function findAllNotInline()
-    {
-        $query = $this->createQuery();
-        $query->matching($query->equals('inlinetest', 0));
-        return $query->execute();
-    }
 }

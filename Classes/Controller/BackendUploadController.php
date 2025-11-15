@@ -34,7 +34,7 @@ class BackendUploadController extends ActionController
     public function listAction(): ResponseInterface
     {
         $this->moduleTemplate->assignMultiple([
-            'items' => $this->singlefileRepository->findAllNotInline(),
+            'items' => $this->singlefileRepository->findAll(),
         ]);
 
         return $this->moduleTemplate->renderResponse('BackendUpload/List');

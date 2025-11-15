@@ -20,7 +20,7 @@ class SingleFileUploadController extends ActionController
     public function listAction(): ResponseInterface
     {
         $this->view->assignMultiple([
-            'items' => $this->singlefileRepository->findAllNotInline(),
+            'items' => $this->singlefileRepository->findAll(),
         ]);
 
         return $this->htmlResponse();
