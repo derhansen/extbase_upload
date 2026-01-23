@@ -1,0 +1,36 @@
+<?php
+
+declare(strict_types=1);
+
+namespace Derhansen\ExtbaseUpload\Domain\Model;
+
+use TYPO3\CMS\Core\Resource\Enum\DuplicationBehavior;
+use TYPO3\CMS\Extbase\Annotation\FileUpload;
+use TYPO3\CMS\Extbase\Domain\Model\FileReference;
+
+class XClassNofile extends Nofile
+{
+    #[FileUpload([
+        'validation' => [
+            'required' => true,
+            'maxFiles' => 1,
+            'fileSize' => ['minimum' => '0K', 'maximum' => '2M'],
+            'mimeType' => ['allowedMimeTypes' => ['image/jpeg']],
+            'imageDimensions' => ['maxWidth' => 4096, 'maxHeight' => 4096]
+        ],
+        'uploadFolder' => '1:/user_upload/extbase_single_file/',
+        'addRandomSuffix' => false,
+        'duplicationBehavior' => DuplicationBehavior::RENAME,
+    ])]
+    protected ?FileReference $file = null;
+
+    public function getFile(): ?FileReference
+    {
+        return $this->file;
+    }
+
+    public function setFile(?FileReference $file): void
+    {
+        $this->file = $file;
+    }
+}

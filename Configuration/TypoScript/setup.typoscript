@@ -4,5 +4,6 @@ plugin.tx_extbaseupload {
     multiFileUploadPid = 92
     multipleFilesUploadPid = 93
     singleFileUploadPid = 88
+    noFileUploadPid = 100
   }
 }

@@ -1,0 +1,23 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
+
+<div>
+    Title: <f:form.textfield property="title" />
+</div>
+
+<div>
+    <f:if condition="{item.file}">
+        <div>
+            Existing Filename: {item.file.originalResource.name}
+        </div>
+        <div>
+            <f:form.uploadDeleteCheckbox id="file" property="file" fileReference="{item.file}" />
+            <label for="file">Delete file</label>
+        </div>
+    </f:if>
+    <f:form.upload property="file" />
+</div>
+
+<div>
+    <f:form.submit value="Save" />
+</div>
+

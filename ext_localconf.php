@@ -7,6 +7,9 @@ use Derhansen\ExtbaseUpload\Controller\MultiFileUploadController;
 use Derhansen\ExtbaseUpload\Controller\MultipleFilesUploadController;
 use Derhansen\ExtbaseUpload\Controller\SingleFileDtoUploadController;
 use Derhansen\ExtbaseUpload\Controller\SingleFileUploadController;
+use Derhansen\ExtbaseUpload\Controller\XClassFileUploadController;
+use Derhansen\ExtbaseUpload\Domain\Model\Nofile;
+use Derhansen\ExtbaseUpload\Domain\Model\XClassNofile;
 use TYPO3\CMS\Core\Utility\ExtensionManagementUtility;
 use TYPO3\CMS\Extbase\Utility\ExtensionUtility;
 
@@ -75,8 +78,26 @@ ExtensionUtility::configurePlugin(
     ExtensionUtility::PLUGIN_TYPE_CONTENT_ELEMENT
 );
 
+ExtensionUtility::configurePlugin(
+    'extbase_upload',
+    'Pi6',
+    [
+        XClassFileUploadController::class => 'list,new,create,show,edit,update',
+    ],
+    // non-cacheable actions
+    [
+        XClassFileUploadController::class => 'list,new,create,show,edit,update',
+    ],
+    ExtensionUtility::PLUGIN_TYPE_CONTENT_ELEMENT
+);
+
 ExtensionManagementUtility::addTypoScript(
     'extbase_upload',
     'setup',
     "@import 'EXT:extbase_upload/Configuration/TypoScript/setup.typoscript'"
 );
+
+// xclass nofile domain model
+$GLOBALS['TYPO3_CONF_VARS']['SYS']['Objects'][Nofile::class] = [
+    'className' => XClassNofile::class
+];
