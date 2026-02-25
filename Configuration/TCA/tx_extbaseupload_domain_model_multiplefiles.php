@@ -19,7 +19,6 @@ return [
             'endtime' => 'endtime',
             'fe_group' => 'fe_group',
         ],
-        'searchFields' => 'title,files',
         'security' => [
             'ignorePageTypeRestriction' => true,
         ],
