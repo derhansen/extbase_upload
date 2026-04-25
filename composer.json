@@ -13,7 +13,7 @@
 		}
 	],
 	"require": {
-		"typo3/cms-core": "dev-main",
+		"typo3/cms-core": "^14.3",
 		"php": ">=8.2"
 	},
 	"autoload": {
@@ -23,7 +23,10 @@
 	},
 	"extra": {
 		"typo3/cms": {
-			"extension-key": "extbase_upload"
+			"extension-key": "extbase_upload",
+			"Package": {
+				"providesPackages": []
+			}
 		}
 	}
 }
